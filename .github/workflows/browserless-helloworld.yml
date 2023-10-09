@@ -1,0 +1,41 @@
+name: browserless-helloworld
+
+on: [push]
+
+jobs:
+  browserless-helloworld:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Browserless Chrome
+        run: docker run -d --name test -p 3000:3000 -e "DEFAULT_LAUNCH_ARGS=[\"--window-size=1920,3080\"]" browserless/chrome:1.57-chrome-stable
+      - name: Sleep for 120 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: "120s"
+      - name: docker ps -a
+        run: |
+          docker ps -a
+          docker logs test
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.commit_sha || github.sha }}
+      - name: test local browserless response
+        run: |
+          curl -vLk http://localhost:3000
+          node -v
+          npm -v
+          node
+      - name: test local browserless response
+        run: |
+          cd youtube-news-scrape
+          npm i
+          node ./index.js
+          node ./puppeteer-youtube-helloworld.js
+          cd -
+      - uses: actions/upload-artifact@v3
+        with:
+          name: screenshots
+          path: youtube-news-scrape/screens/*.png
