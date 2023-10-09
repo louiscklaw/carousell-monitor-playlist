@@ -11,14 +11,14 @@ jobs:
       - name: Sleep for 120 seconds
         uses: jakejarvis/wait-action@master
         with:
-          time: "120s"
+          time: '120s'
       - name: docker ps -a
         run: |
           docker ps -a
           docker logs test
       - uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: '18'
       - uses: actions/checkout@v3
         with:
           ref: ${{ inputs.commit_sha || github.sha }}
@@ -30,12 +30,11 @@ jobs:
           node
       - name: test local browserless response
         run: |
-          cd youtube-news-scrape
-          npm i
-          node ./index.js
-          node ./puppeteer-youtube-helloworld.js
+          cd carousell-search-scrape
+            npm i
+            node ./index.js
           cd -
       - uses: actions/upload-artifact@v3
         with:
           name: screenshots
-          path: youtube-news-scrape/screens/*.png
+          path: carousell-search-scrape/screens/*.png
