@@ -70,6 +70,20 @@ puppeteer.use(StealthPlugin());
     var search_result = await scrapeCarousellSearchResult(page);
     var search_result_json = JSON.parse(search_result);
     output.result['search_using_programming'] = search_result_json;
+
+    await page.goto('https://www.carousell.com.hk/search/javascript', { waitUntil: 'networkidle2' });
+    await page.setViewport({ width: 1920, height: 1080 * 5 });
+    await page.screenshot({ path: './screens/300-javascript-helloworld.png' });
+    var search_result = await scrapeCarousellSearchResult(page);
+    var search_result_json = JSON.parse(search_result);
+    output.result['search_using_javascript'] = search_result_json;
+
+    await page.goto('https://www.carousell.com.hk/search/python', { waitUntil: 'networkidle2' });
+    await page.setViewport({ width: 1920, height: 1080 * 5 });
+    await page.screenshot({ path: './screens/300-python-helloworld.png' });
+    var search_result = await scrapeCarousellSearchResult(page);
+    var search_result_json = JSON.parse(search_result);
+    output.result['search_using_python'] = search_result_json;
   } catch (error) {
     console.log(error);
     output = { ...output, state: 'error puppeteer-carousell-helloworld.js', error };
