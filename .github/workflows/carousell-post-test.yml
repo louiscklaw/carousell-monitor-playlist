@@ -1,6 +1,10 @@
 name: carousell-post-test
 
-on: [push]
+on:
+  schedule:
+    - cron: '*/20 * * * *'
+  push:
+  workflow_dispatch:
 
 jobs:
   carousell-post-test:
