@@ -79,5 +79,3 @@ puppeteer.use(StealthPlugin());
 
   browser && browser.close();
 })();
-
-console.log('puppeteer-carousell-helloworld');

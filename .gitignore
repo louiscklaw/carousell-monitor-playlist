@@ -1,6 +1,6 @@
 **/screens/*.png
-**/youtube-news-scrape/**/*.json
-youtube-news-scrape/results/*.json
+**/carousell-news-scrape/**/*.json
+carousell-news-scrape/results/*.json
 
 **/*.del
 node_modules

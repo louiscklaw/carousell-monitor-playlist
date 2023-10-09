@@ -39,3 +39,10 @@ jobs:
         with:
           name: screenshots
           path: carousell-search-scrape/screens/*.png
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force_orphan: true
+          publish_dir: ./carousell-search-scrape/results
