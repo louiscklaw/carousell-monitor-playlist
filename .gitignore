@@ -1,6 +1,8 @@
 **/screens/*.png
 carousell-search-scrape/results/*.json
 carousell-post-scrape/results/*.json
+public/*.json
+
 
 **/*.del
 node_modules

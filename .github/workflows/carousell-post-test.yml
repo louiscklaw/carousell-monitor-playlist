@@ -46,12 +46,18 @@ jobs:
             node ./index.js
             node ./helloworld.js
           cd -
+
       - name: test result
         run: |
           cd monitors
             npm i
             node ./my_post/index.js
           cd -
+
+      - name: collect result
+        run: |
+          ./scripts/collect_result.sh
+
       - uses: actions/upload-artifact@v3
         with:
           name: screenshots
@@ -64,7 +70,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force_orphan: true
-          publish_dir: |
-            ./carousell-search-scrape/results
-            ./carousell-post-scrape/results
-            ./monitors/results
+          publish_dir: ./public
