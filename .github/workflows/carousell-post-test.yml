@@ -46,6 +46,12 @@ jobs:
             node ./index.js
             node ./helloworld.js
           cd -
+      - name: test result
+        run: |
+          cd monitors
+            npm i
+            node ./my_post/index.js
+          cd -
       - uses: actions/upload-artifact@v3
         with:
           name: screenshots
@@ -61,3 +67,4 @@ jobs:
           publish_dir: |
             ./carousell-search-scrape/results
             ./carousell-post-scrape/results
+            ./monitors/results
