@@ -1,9 +1,9 @@
-name: browserless-helloworld
+name: carousell-post-test
 
 on: [push]
 
 jobs:
-  browserless-helloworld:
+  carousell-post-test:
     runs-on: ubuntu-latest
     steps:
       - name: Run Browserless Chrome
