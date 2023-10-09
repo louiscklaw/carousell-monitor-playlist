@@ -32,21 +32,32 @@ jobs:
           node -v
           npm -v
           node
-      - name: test local browserless response
+      - name: monitor search result
         run: |
           cd carousell-search-scrape
             npm i
             node ./index.js
             node ./puppeteer-carousell-helloworld.js
           cd -
+      - name: monitor post
+        run: |
+          cd carousell-post-scrape
+            npm i
+            node ./index.js
+            node ./helloworld.js
+          cd -
       - uses: actions/upload-artifact@v3
         with:
           name: screenshots
-          path: carousell-search-scrape/screens/*.png
+          path: |
+            carousell-search-scrape/screens/*.png
+            carousell-post-scrape/screens/*.png
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force_orphan: true
-          publish_dir: ./carousell-search-scrape/results
+          publish_dir: |
+            ./carousell-search-scrape/results
+            ./carousell-post-scrape/results

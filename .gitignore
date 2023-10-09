@@ -1,5 +1,6 @@
 **/screens/*.png
 carousell-search-scrape/results/*.json
+carousell-post-scrape/results/*.json
 
 **/*.del
 node_modules
