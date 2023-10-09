@@ -33,6 +33,7 @@ jobs:
           cd carousell-search-scrape
             npm i
             node ./index.js
+            node ./puppeteer-carousell-helloworld.js
           cd -
       - uses: actions/upload-artifact@v3
         with:
