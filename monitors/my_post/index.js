@@ -6,7 +6,7 @@ var search_result = fs.readFileSync('../carousell-search-scrape/results/carousel
 });
 var search_result_json = JSON.parse(search_result);
 var { result } = search_result_json;
-var { search_using_vba, search_using_coding, search_using_programming } = result;
+var { search_using_vba, search_using_coding, search_using_programming, search_using_python, search_using_javascript } = result;
 
 function testMain(list_under_test) {
   var vba_post_check = 'FAILED';
@@ -32,10 +32,14 @@ function testMain(list_under_test) {
   var coding_post_check = testMain(search_using_coding);
   var coding_post_check = testMain(search_using_coding);
   var programming_post_check = testMain(search_using_programming);
+  var javascript_post_check = testMain(search_using_javascript);
+  var python_post_check = testMain(search_using_python);
   try {
     output.result['vba_post_check'] = vba_post_check;
     output.result['coding_post_check'] = coding_post_check;
     output.result['programming_post_check'] = programming_post_check;
+    output.result['javascript_post_check'] = javascript_post_check;
+    output.result['python_post_check'] = python_post_check;
   } catch (error) {
     output = { ...output };
   }
