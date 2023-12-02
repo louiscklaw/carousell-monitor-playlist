@@ -16,11 +16,16 @@
   "useTabs": false,
   "overrides": [
     {
-      "files": ["*.html"],
+      "files": [
+        "*.html"
+      ],
       "options": {}
     },
     {
-      "files": ["*.{j,t}sx", "*.{j,t}s"],
+      "files": [
+        "*.{j,t}sx",
+        "*.{j,t}s"
+      ],
       "options": {}
     }
   ]
