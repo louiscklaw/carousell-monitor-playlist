@@ -36,8 +36,8 @@ jobs:
         run: |
           cd carousell-search-scrape
             npm i
+            node ./helloworld.js
             node ./index.js
-            node ./puppeteer-carousell-helloworld.js
           cd -
       - name: monitor post
         run: |
