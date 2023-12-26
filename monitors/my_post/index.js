@@ -34,11 +34,16 @@ function testMain(list_under_test) {
   var programming_post_check = testMain(search_using_programming);
   var javascript_post_check = testMain(search_using_javascript);
   var python_post_check = testMain(search_using_python);
+  var tableau_post_check = testMain(search_using_tableau);
+  var wordpress_post_check = testMain(search_using_wordpress);
+
   try {
     output.result['vba_post_check'] = vba_post_check;
     output.result['coding_post_check'] = coding_post_check;
     output.result['programming_post_check'] = programming_post_check;
     output.result['javascript_post_check'] = javascript_post_check;
+    output.result['wordpress_post_check'] = wordpress_post_check;
+    output.result['tableau_post_check'] = tableau_post_check;
     output.result['python_post_check'] = python_post_check;
   } catch (error) {
     output = { ...output };
