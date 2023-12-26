@@ -6,7 +6,13 @@ var search_result = fs.readFileSync('../carousell-search-scrape/results/carousel
 });
 var search_result_json = JSON.parse(search_result);
 var { result } = search_result_json;
-var { search_using_vba, search_using_coding, search_using_programming, search_using_python, search_using_javascript } = result;
+var { search_using_vba,
+  search_using_coding,
+  search_using_programming,
+  search_using_python,
+  search_using_javascript,
+  search_using_tableau,
+  search_using_wordpress } = result;
 
 function testMain(list_under_test) {
   var vba_post_check = 'FAILED';
