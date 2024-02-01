@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 set -x
-docker network create browserless-net
 
 set -ex
 
