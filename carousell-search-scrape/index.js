@@ -97,9 +97,6 @@ puppeteer.use(StealthPlugin());
     await fs.writeFileSync('./results/carousell_search_result.json', JSON.stringify(output, null, 2), {
       encoding: 'utf-8',
     });
-    await fs.writeFileSync('../_tmp/results/carousell_search_result.json', JSON.stringify(output, null, 2), {
-      encoding: 'utf-8',
-    });
   } catch (error) {
     // console.log(error);
     // output = { ...output, state: 'error puppeteer-carousell-helloworld.js', error };

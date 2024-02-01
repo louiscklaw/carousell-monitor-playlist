@@ -64,5 +64,4 @@ function testMain(list_under_test, kw) {
     output = { ...output };
   }
   fs.writeFileSync('./results/post_test_result.json', JSON.stringify(output, null, 2), { encoding: 'utf-8' });
-  fs.writeFileSync('../_tmp/results/post_test_result.json', JSON.stringify(output, null, 2), { encoding: 'utf-8' });
 })();
