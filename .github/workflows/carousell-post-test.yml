@@ -34,16 +34,7 @@ jobs:
           node
       - name: monitor search result
         run: |
-          cd carousell-search-scrape
-            npm i
-            node ./helloworld.js
-            node ./index.js
-          cd -
-          cd carousell-post-scrape
-            npm i
-            node ./index.js
-            node ./helloworld.js
-          cd -
+          ./test.sh
 
       - uses: actions/upload-artifact@v3
         with:
