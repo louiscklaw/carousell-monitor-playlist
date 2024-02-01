@@ -39,24 +39,15 @@ jobs:
             node ./helloworld.js
             node ./index.js
           cd -
-      - name: monitor post
-        run: |
           cd carousell-post-scrape
             npm i
             node ./index.js
             node ./helloworld.js
           cd -
-
-      - name: test result
-        run: |
           cd monitors
-            ls -l ../_tmp/results
             npm i
             node ./my_post/index.js
           cd -
-
-      - name: collect result
-        run: |
           ./scripts/collect_result.sh
 
       - uses: actions/upload-artifact@v3
