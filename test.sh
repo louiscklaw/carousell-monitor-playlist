@@ -21,7 +21,7 @@ docker run -t \
   -v ./_tmp:/_tmp \
   --workdir /app node:18-buster ./entry.sh
 
-docker run -it \
+docker run -t \
    --network browserless-net \
   -v ./monitors:/app \
   -v ./_tmp:/_tmp \
