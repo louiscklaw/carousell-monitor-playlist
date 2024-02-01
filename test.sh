@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+set -x
+docker network create browserless-net
+
 set -ex
 
-node -v
 
 mkdir -p ./_tmp
 
