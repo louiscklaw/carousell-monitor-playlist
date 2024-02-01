@@ -13,7 +13,7 @@ jobs:
       - name: Run Browserless Chrome
         run: |
           docker network create browserless-net
-          docker run -d --network browserless-net --name test -p 3000:3000 -e "DEFAULT_LAUNCH_ARGS=[\"--window-size=1920,3080\"]" browserless/chrome:1.57-chrome-stable
+          docker run -d --network browserless-net --hostname browserless --name test -p 3000:3000 -e "DEFAULT_LAUNCH_ARGS=[\"--window-size=1920,3080\"]" browserless/chrome:1.57-chrome-stable
       - name: Sleep for 120 seconds
         uses: jakejarvis/wait-action@master
         with:
