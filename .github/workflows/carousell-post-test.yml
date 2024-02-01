@@ -50,6 +50,7 @@ jobs:
       - name: test result
         run: |
           cd monitors
+            ls -l ../_tmp/results
             npm i
             node ./my_post/index.js
           cd -
