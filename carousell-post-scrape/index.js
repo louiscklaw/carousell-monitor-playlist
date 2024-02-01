@@ -17,7 +17,7 @@ puppeteer.use(StealthPlugin());
   };
 
   try {
-    browser = await puppeteer.connect({ browserWSEndpoint: `ws://localhost:3000` });
+    browser = await puppeteer.connect({ browserWSEndpoint: `ws://browserless:3000` });
     const page = await browser.newPage();
     var output = { state: 'init', debug: {}, error: {}, result: {} };
 

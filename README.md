@@ -5,8 +5,10 @@
 ```bash
 $ helloworld
 
+docker network create browserless-net
+
 # start browserless container
-$ docker run -d --name test -p 3000:3000 -e "DEFAULT_LAUNCH_ARGS=[\"--disable-features=site-per-process\"]" browserless/chrome:1.57-chrome-stable
+$ docker run -d --name test --network browserless-net --hostname browserless -p 3000:3000 -e "DEFAULT_LAUNCH_ARGS=[\"--disable-features=site-per-process\"]" browserless/chrome:1.57-chrome-stable
 
 # 1. produce search result
 $ cd carousell-search-scrape

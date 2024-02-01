@@ -1,7 +1,7 @@
 var fs = require('fs');
 var expect = require('chai').expect;
 
-var search_result = fs.readFileSync('../carousell-search-scrape/results/carousell_search_result.json', {
+var search_result = fs.readFileSync('/_tmp/results/carousell_search_result.json', {
   encoding: 'utf-8',
 });
 var search_result_json = JSON.parse(search_result);
@@ -63,5 +63,5 @@ function testMain(list_under_test, kw) {
   } catch (error) {
     output = { ...output };
   }
-  fs.writeFileSync('./results/post_test_result.json', JSON.stringify(output, null, 2), { encoding: 'utf-8' });
+  fs.writeFileSync('/_tmp/results/post_test_result.json', JSON.stringify(output, null, 2), { encoding: 'utf-8' });
 })();

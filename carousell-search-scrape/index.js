@@ -50,7 +50,7 @@ puppeteer.use(StealthPlugin());
 
     async function testKeyword(kw, step_num) {
       try {
-        browser = await puppeteer.connect({ browserWSEndpoint: `ws://localhost:3000` });
+        browser = await puppeteer.connect({ browserWSEndpoint: `ws://browserless:3000` });
         var page;
 
         page = await browser.newPage();
@@ -94,7 +94,7 @@ puppeteer.use(StealthPlugin());
       }
     }
 
-    await fs.writeFileSync('./results/carousell_search_result.json', JSON.stringify(output, null, 2), {
+    await fs.writeFileSync('/_tmp/results/carousell_search_result.json', JSON.stringify(output, null, 2), {
       encoding: 'utf-8',
     });
   } catch (error) {

@@ -9,4 +9,7 @@ cp _tmp/results/carousell_search_result.json ./public &
 
 wait
 
+
+echo 'copy done'
+
 # cp carousell-post-scrape/results/carousell_post_result.json ./public
