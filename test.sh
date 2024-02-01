@@ -5,6 +5,7 @@ docker network create browserless-net
 
 set -ex
 
+id
 
 mkdir -p ./_tmp
 
