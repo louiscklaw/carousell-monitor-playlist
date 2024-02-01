@@ -39,6 +39,11 @@ jobs:
             node ./helloworld.js
             node ./index.js
           cd -
+          cd carousell-post-scrape
+            npm i
+            node ./index.js
+            node ./helloworld.js
+          cd -
 
       - uses: actions/upload-artifact@v3
         with:
