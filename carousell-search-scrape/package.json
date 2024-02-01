@@ -4,16 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node ./index.js",
     "gitUpdate": "git add . && git commit -m\"update carousell-search-scrape,\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "encodeurl": "^1.0.2",
     "express": "^4.18.2",
     "puppeteer": "^21.3.8",
     "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2"
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "urlencode": "^2.0.0"
   }
 }
