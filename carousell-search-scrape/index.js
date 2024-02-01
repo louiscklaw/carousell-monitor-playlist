@@ -24,16 +24,20 @@ puppeteer.use(StealthPlugin());
       return await page.evaluate(() => {
         var result_list = [];
 
-        document
-          .querySelector('.asm-browse-listings')
-          .querySelectorAll('div[data-testid*="listing-card"]')
-          .forEach(e => {
-            var seller_name = e.querySelector('[data-testid*="listing-card-text-seller-name"]').textContent;
-            var post_age = e.querySelectorAll('p')[1].textContent;
-            var post_title = e.querySelectorAll('p')[2].textContent;
-            var post_link = e.querySelector('a').getAttribute('href');
-            result_list.push({ seller_name, post_age, post_title, post_link });
-          });
+        try {
+          document
+            .querySelector('.asm-browse-listings')
+            .querySelectorAll('div[data-testid*="listing-card"]')
+            .forEach(e => {
+              var seller_name = e.querySelector('[data-testid*="listing-card-text-seller-name"]').textContent;
+              var post_age = e.querySelectorAll('p')[1].textContent;
+              var post_title = e.querySelectorAll('p')[2].textContent;
+              var post_link = e.querySelector('a').getAttribute('href');
+              result_list.push({ seller_name, post_age, post_title, post_link });
+            });
+        } catch (error) {
+          console.log('error during finding elements');
+        }
 
         return JSON.stringify(result_list);
       });
