@@ -6,6 +6,20 @@ var encodeUrl = require('encodeurl');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 
+async function initStealthing(page) {
+  try {
+    await page.evaluate(() => {
+      Object.defineProperty(navigator, 'webdriver', {
+        get: () => undefined,
+      });
+    });
+  } catch (error) {
+    console.log('error during initStealthing');
+    console.log(error);
+    throw error;
+  }
+}
+
 (async () => {
   var browser;
   var output = {
@@ -58,6 +72,7 @@ puppeteer.use(StealthPlugin());
         var page;
 
         page = await browser.newPage();
+        await initStealthing(page);
 
         console.log(`testing ${kw}...`);
         const carousell_url = `https://www.carousell.com.hk/search/${kw}`;

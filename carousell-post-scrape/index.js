@@ -5,6 +5,20 @@ const fs = require('fs');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 
+async function initStealthing(page) {
+  try {
+    await page.evaluate(() => {
+      Object.defineProperty(navigator, 'webdriver', {
+        get: () => undefined,
+      });
+    });
+  } catch (error) {
+    console.log('error during initStealthing');
+    console.log(error);
+    throw error;
+  }
+}
+
 (async () => {
   var browser;
   var output = {
@@ -19,6 +33,8 @@ puppeteer.use(StealthPlugin());
   try {
     browser = await puppeteer.connect({ browserWSEndpoint: `ws://browserless:3000` });
     const page = await browser.newPage();
+    await initStealthing(page);
+
     var output = { state: 'init', debug: {}, error: {}, result: {} };
 
     // Full puppeteer API is available
